@@ -1,9 +1,6 @@
 $board-bg-color: rgb(75, 191, 107);
-$card-bg-color: #ebecf0;
-$hight-column-header: 36px;
-$hight-column-footer: 36px;
 
-$gap: 10px;
+@import "_setting";
 
 body {
     font-size: 14px;
@@ -12,102 +9,7 @@ body {
 }
 .trello-App {
     height: 100vh;
-    display: grid;
-    grid-template-rows: 40px 50px 1fr;
+    // display: grid;
+    // grid-template-rows: 40px 50px 1fr;
     background-color: $board-bg-color;
-    .navbar {
-        display: flex;
-        align-items: center;
-
-        &.app {
-            font-size: 1.5rem;
-        }
-        &.board {
-            font-size: 1.1rem;
-        }
-    }
-    .board-column {
-        display: flex;
-        overflow-x: auto;
-        margin: 0 $gap $gap;
-        &::-webkit-scrollbar {
-            -webkit-appearance: none;
-        }
-        &::-webkit-scrollbar:horizontal {
-            height: 11px;
-        }
-        &::-webkit-scrollbar-thumb {
-            background: linear-gradient(
-                180deg,
-                rgba(0, 0, 0, 0.24) 0,
-                rgba(0, 0, 0, 0.24) 48px,
-                transparent 80px,
-                transparent
-            );
-            border: 3px solid rgba(9, 30, 66, 0.1);
-        }
-        .column {
-            flex: 0 0 auto;
-            width: 300px;
-            height: calc(100% -#{$gap});
-            &:not(:first-child) {
-                margin-left: $gap;
-            }
-            > * {
-                background-color: $card-bg-color;
-                color: #333;
-                padding: 0 8px;
-            }
-
-            header {
-                padding-left: 15px;
-                height: $hight-column-header;
-                line-height: 36px;
-                font-weight: 500;
-                font-size: 16px;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-            }
-            footer {
-                padding-left: 15px;
-                height: $hight-column-footer;
-                line-height: 36px;
-                font-weight: 500;
-                font-size: 16px;
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-            }
-            ul {
-                list-style: none;
-                margin: 0;
-                max-height: calc(100% - #{$hight-column-header} - #{$hight-column-footer});
-                overflow-y: auto;
-                &::-webkit-scrollbar {
-                    -webkit-appearance: none;
-                }
-                &::-webkit-scrollbar:vertical {
-                    width: 11px;
-                }
-                &::-webkit-scrollbar-thumb {
-                    background-color: rgba(9, 30, 66, 0.08);
-                    border-right: 3px solid rgba(9, 30, 66, 0.08);
-                }
-                li {
-                    background-color: white;
-                    padding: $gap;
-                    border-radius: 3px;
-                    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-                    &:not(:last-child) {
-                        margin-bottom: $gap;
-                    }
-                    img {
-                        display: block;
-                        width: calc(100% +2 * #{$gap});
-                        max-height: auto;
-                        margin: -10px 0 10px -10px;
-                    }
-                }
-            }
-        }
-    }
 }
