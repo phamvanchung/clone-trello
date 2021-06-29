@@ -4,7 +4,7 @@ import Column from "Components/Column/Column";
 import { initialData } from "actions/initialData";
 import { isEmpty } from "lodash";
 import { Container, Draggable } from 'react-smooth-dnd';
-
+import { applyDrag } from 'utils/applyDrag';
 import { mapOrder } from "utils/sorts";
 
 

@@ -1,8 +1,10 @@
-@import "_setting";
+@import "../../assets/setting";
 
 .navbar-board {
     height:$boardBar-height;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
+    color: #fff;
+    margin-left:15px;
 }

@@ -1,4 +1,5 @@
-@import "_setting";
+@import "../../assets/setting";
+
 
 $card-bg-color: #ebecf0;
 $hight-column-header: 36px;
@@ -55,10 +56,12 @@ $column-height: calc(#{$boardContent-height} - #{$gap * 2});
         .card-ghost {
             transition: transform 0.18s ease;
             transform: rotateZ(5deg);
+            font-weight: bold;
         }
         .card-ghost-drop {
             transition: transform 0.18s ease-in-out;
             transform: rotateZ(0deg);
+            font-weight: bold;
         }
         .card-drop-preview {
             background-color: rgba(150, 150, 200, 0.1);
