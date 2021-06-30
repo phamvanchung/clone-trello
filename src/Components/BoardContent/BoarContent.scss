@@ -1,0 +1,31 @@
+@import "../../assets/setting";
+
+
+.board-content {
+    height:$boardContent-height;
+    // display: flex;
+    // margin: 0 $gap $gap;
+    overflow-x: auto;
+    overflow-y:hidden;
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    &::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.24) 0,
+            rgba(0, 0, 0, 0.24) 48px,
+            transparent 80px,
+            transparent
+        );
+        border: 3px solid rgba(9, 30, 66, 0.1);
+    }
+    .columns-drop-preview {
+        background-color: rgba(150, 150, 200, 0.1);
+        border: 1px dashed #abc;
+        margin: 5px 45px 5px 5px;
+      }
+}
