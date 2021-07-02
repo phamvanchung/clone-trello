@@ -34,9 +34,23 @@ $column-height: calc(#{$boardContent-height} - #{$gap * 2});
         height: $hight-column-footer;
         line-height: 36px;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 15px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        color: #5e6c84;
+        .footer-actions{
+            margin-left: $gap;
+            cursor: pointer;
+           
+            &:hover{
+                color: #172b4d;
+            }
+            i{
+                font-size: 14px;
+                font-weight: 400;
+                margin-right: 5px;
+            }
+        }
     }
     .card-list {
         margin: 0;
