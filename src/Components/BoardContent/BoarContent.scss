@@ -3,9 +3,9 @@
 .board-content {
     height: $boardContent-height;
     display: flex;
-    // margin: 0 $gap $gap;
     overflow-x: auto;
     overflow-y: hidden;
+
     &::-webkit-scrollbar {
         -webkit-appearance: none;
     }
@@ -31,7 +31,8 @@
         background-color: hsla(0, 0%, 100%, 0.24);
         cursor: pointer;
         width: 272px;
-        height: 32px;
+        max-width: 272px;
+        // height: 32px;
         line-height: 32px;
         padding: 4px;
         margin: 0 $gap;
@@ -45,6 +46,26 @@
             font-size: 14px;
             font-weight: 400;
             margin-right: 5px;
+        }
+    }
+    .enter-new-column {
+        width: 272px;
+        max-width: 272px;
+        background-color: #ebecf0;
+        padding: 4px 10px;
+        margin: 0 $gap;
+        border-radius: 5px;
+        input {
+            margin: 5px 0;
+        }
+        .icon {
+            color: #42526e;
+            font-size: 24px;
+            margin-left: $gap;
+            &:hover {
+                cursor: pointer;
+                color: #172b4d;
+            }
         }
     }
 }
