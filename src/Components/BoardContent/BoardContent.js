@@ -3,13 +3,7 @@ import Column from "Components/Column/Column";
 import { initialData } from "actions/initialData";
 import { isEmpty } from "lodash";
 import { Container, Draggable } from "react-smooth-dnd";
-import {
-  Container as BtrContainer,
-  Row,
-  Col,
-  Form,
-  Button,
-} from "react-bootstrap";
+import { Container as BtrContainer, Row, Col, Form, Button } from "react-bootstrap";
 
 import { mapOrder } from "utils/sorts";
 import { applyDrag } from "utils/applyDrag";
@@ -66,6 +60,10 @@ export default function BoardContent() {
     }
   };
 
+  const handleOnchange = (e) => {
+    setNewColumnTitle(e.target.value);
+  };
+
   const toggleOpenForm = () => setOpenNewColumnForm(!openNewColumnForm);
 
   const addNewColumn = () => {
@@ -93,9 +91,27 @@ export default function BoardContent() {
     toggleOpenForm();
   };
 
-  const handleOnchange = (e) => {
-    setNewColumnTitle(e.target.value);
-  };
+  const onUpdateColumn = (newColumnToUpdate) => {
+    const columnIdToUpdate = newColumnToUpdate.id;
+
+    let newColumns = [...columns];
+    const columnIndexToUpdate = newColumns.findIndex(i => i.id === columnIdToUpdate);
+
+    if (newColumnToUpdate._destroy) {
+        //delete
+        newColumns.splice(columnIndexToUpdate, 1);
+    } else {
+        //update
+        newColumns.splice(columnIndexToUpdate, 1, newColumnToUpdate );
+    }
+
+    let newBoard = { ...board };
+    newBoard.columnOrder = newColumns.map((c) => c.id);
+    newBoard.columns = newColumns;
+
+    setColumns(newColumns);
+    setBoard(newBoard);
+  }
 
   return (
     <div className="board-content">
@@ -112,7 +128,7 @@ export default function BoardContent() {
       >
         {columns.map((column, index) => (
           <Draggable key={index}>
-            <Column column={column} onCardDrop={onCardDrop} />
+            <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn}/>
           </Draggable>
         ))}
       </Container>
