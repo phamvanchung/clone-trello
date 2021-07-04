@@ -31,7 +31,18 @@ body {
         box-shadow: none;
     }
     .btn:focus, btn:active{
-        outline:none;
-        box-shadow:none;
+        outline:none !important;
+        box-shadow:none !important;
+    }
+    .input-trello{
+        background-color: inherit;
+        font-size:inherit;
+        font-weight:inherit;
+        border: none;
+        cursor:pointer;
+        &:focus{
+            background-color: #fff;
+            border: 1px solid #0079bf;
+        }
     }
 }
