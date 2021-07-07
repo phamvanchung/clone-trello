@@ -112,7 +112,9 @@ export default function Column(props) {
                   <i className="fa fa-times" />
                 </span>
               </div>
-              <Dropdown.Item>Add card...</Dropdown.Item>
+              <Dropdown.Item onClick={toggleOpenForm}>
+                Add card...
+              </Dropdown.Item>
               <Dropdown.Item onClick={toggleOpenFormModal}>
                 Delete list...
               </Dropdown.Item>
