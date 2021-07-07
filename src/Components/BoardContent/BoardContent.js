@@ -1,29 +1,35 @@
-import React, { useState, useEffect, useRef } from "react";
-import Column from "Components/Column/Column";
-import { initialData } from "actions/initialData";
-import { isEmpty } from "lodash";
-import { Container, Draggable } from "react-smooth-dnd";
-import { Container as BtrContainer, Row, Col, Form, Button } from "react-bootstrap";
+import React, { useState, useEffect, useRef } from 'react';
+import Column from 'Components/Column/Column';
+import { initialData } from 'actions/initialData';
+import { isEmpty } from 'lodash';
+import { Container, Draggable } from 'react-smooth-dnd';
+import {
+  Container as BtrContainer,
+  Row,
+  Col,
+  Form,
+  Button,
+} from 'react-bootstrap';
 
-import { mapOrder } from "utils/sorts";
-import { applyDrag } from "utils/applyDrag";
+import { mapOrder } from 'utils/sorts';
+import { applyDrag } from 'utils/applyDrag';
 
-import "./BoarContent.scss";
+import './BoarContent.scss';
 
 export default function BoardContent() {
   const [board, setBoard] = useState({});
   const [columns, setColumns] = useState({});
   const [openNewColumnForm, setOpenNewColumnForm] = useState(false);
-  const [newColumnTitle, setNewColumnTitle] = useState("");
+  const [newColumnTitle, setNewColumnTitle] = useState('');
   const newColumnInputRef = useRef(null);
 
   useEffect(() => {
     const boardData = initialData.boards.find(
-      (board) => board.id === "board-1"
+      (board) => board.id === 'board-1'
     );
     if (boardData) {
       setBoard(boardData);
-      setColumns(mapOrder(boardData.columns, boardData.columnOrder, "id"));
+      setColumns(mapOrder(boardData.columns, boardData.columnOrder, 'id'));
     }
   }, []);
 
@@ -95,14 +101,16 @@ export default function BoardContent() {
     const columnIdToUpdate = newColumnToUpdate.id;
 
     let newColumns = [...columns];
-    const columnIndexToUpdate = newColumns.findIndex(i => i.id === columnIdToUpdate);
+    const columnIndexToUpdate = newColumns.findIndex(
+      (i) => i.id === columnIdToUpdate
+    );
 
     if (newColumnToUpdate._destroy) {
-        //delete
-        newColumns.splice(columnIndexToUpdate, 1);
+      //delete
+      newColumns.splice(columnIndexToUpdate, 1);
     } else {
-        //update
-        newColumns.splice(columnIndexToUpdate, 1, newColumnToUpdate );
+      //update
+      newColumns.splice(columnIndexToUpdate, 1, newColumnToUpdate);
     }
 
     let newBoard = { ...board };
@@ -111,7 +119,7 @@ export default function BoardContent() {
 
     setColumns(newColumns);
     setBoard(newBoard);
-  }
+  };
 
   return (
     <div className="board-content">
@@ -123,12 +131,16 @@ export default function BoardContent() {
         dropPlaceholder={{
           animationDuration: 150,
           showOnTop: true,
-          className: "columns-drop-preview",
+          className: 'columns-drop-preview',
         }}
       >
         {columns.map((column, index) => (
           <Draggable key={index}>
-            <Column column={column} onCardDrop={onCardDrop} onUpdateColumn={onUpdateColumn}/>
+            <Column
+              column={column}
+              onCardDrop={onCardDrop}
+              onUpdateColumn={onUpdateColumn}
+            />
           </Draggable>
         ))}
       </Container>
@@ -152,7 +164,7 @@ export default function BoardContent() {
                 ref={newColumnInputRef}
                 value={newColumnTitle}
                 onChange={handleOnchange}
-                onKeyDown={e => (e.key ==='Enter' && addNewColumn())}
+                onKeyDown={(e) => e.key === 'Enter' && addNewColumn()}
               />
               <Button variant="primary" size="sm" onClick={addNewColumn}>
                 Add column

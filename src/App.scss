@@ -1,5 +1,5 @@
-@import "~bootstrap/scss/bootstrap";
-@import "./assets/setting";
+@import '~bootstrap/scss/bootstrap';
+@import './assets/setting';
 
 $board-bg-color: rgb(75, 191, 107);
 
@@ -12,37 +12,47 @@ body {
     height: 100vh;
     // display: grid;
     // grid-template-rows: 40px 50px 1fr;
-    background-image: url("./assets/images/bg.jpg");
+    background-image: url('./assets/images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 
     textarea:focus,
     textarea.form-control:focus,
     input.form-control:focus,
-    input[type="text"]:focus,
-    input[type="password"]:focus,
-    input[type="email"]:focus,
-    input[type="number"]:focus,
-    [type="text"].form-control:focus,
-    [type="password"].form-control:focus,
-    [type="email"].form-control:focus,
-    [type="tel"].form-control:focus,
+    input[type='text']:focus,
+    input[type='password']:focus,
+    input[type='email']:focus,
+    input[type='number']:focus,
+    [type='text'].form-control:focus,
+    [type='password'].form-control:focus,
+    [type='email'].form-control:focus,
+    [type='tel'].form-control:focus,
     [contenteditable].form-control:focus {
         box-shadow: none;
     }
-    .btn:focus, btn:active{
-        outline:none !important;
-        box-shadow:none !important;
+    .btn:focus,
+    btn:active {
+        outline: none !important;
+        box-shadow: none !important;
     }
-    .input-trello{
+    .input-trello {
         background-color: inherit;
-        font-size:inherit;
-        font-weight:inherit;
+        font-size: inherit;
+        font-weight: inherit;
         border: none;
-        cursor:pointer;
-        &:focus{
+        cursor: pointer;
+        &:focus {
             background-color: #fff;
             border: 1px solid #0079bf;
+        }
+    }
+    .icon {
+        color: #42526e;
+        font-size: 24px;
+        margin-left: $gap;
+        &:hover {
+            cursor: pointer;
+            color: #172b4d;
         }
     }
 }
